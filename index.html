@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divison Rastor</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script>
+        var stage;
+
+        function init() {
+            stage = new createjs.Stage("myCanvas");
+
+            var image = new Image();
+            image.src = "face.jpg";
+            image.onload = handleImageLoad;
+        }
+
+        function handleImageLoad(event) {
+            var image = event.target;
+            var bitmap = new createjs.Bitmap(image);
+            bitmap.scale = 0.14;
+            stage.addChild(bitmap);
+            stage.update();
+        }
+      </script>
+</head>
+<body onload="init();">
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+</html>
